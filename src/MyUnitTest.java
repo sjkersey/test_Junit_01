@@ -14,6 +14,15 @@ note on Windows use ';' instead of ':' for classpath separator?
 run with
 java -cp .:/home/scott/dev/junit-4.10.jar org.junit.runner.JUnitCore MyUnitTest
 
+
+alternate compile and run in different dir structure:
+[scott@DE2c src]$ javac -d . -cp .:/home/scott/dev/junit_tests/test_Junit_01/lib/junit-4.10.jar MyUnitTest.java
+[scott@DE2c src]$ ls
+MyUnit.class  MyUnit.java  MyUnitTest.class  MyUnitTest.java
+[scott@DE2c src]$ java -cp .:/home/scott/dev/junit_tests/test_Junit_01/lib/junit-4.10.jar org.junit.runner.JUnitCore MyUnitTest
+
+
+
 note that javac originally used is the openjdk version, not the Oracle closed source version:
 
 [scott@DE2c bin]$ alternatives --list | grep javac
