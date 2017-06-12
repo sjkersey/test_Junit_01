@@ -253,7 +253,7 @@ To https://github.com/sjkersey/test_Junit_01.git
    cfcb5b7..8f8e29d  master -> master
 
 
-above added the new dirs and files, now we need to remove the old files that were moved to the new dirs
+-above added the new dirs and files, now we need to remove the old files that were moved to the new dirs
 
 
 [scott@DE2c src]$ ls
@@ -340,3 +340,9 @@ To https://github.com/sjkersey/test_Junit_01.git
 
 
 --finally old files removed on remote repo.
+
+--summary
+add a file with 'git add --all'
+git push
+git commit -a
+git push
