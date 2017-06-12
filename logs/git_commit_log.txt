@@ -1,0 +1,342 @@
+-first clone the repo (could have also created a local repo with 'git init' and then committed it to an existing new remote repo)
+
+[scott@DE2c junit_tests]$ git clone https://github.com/sjkersey/test_Junit_01.git
+Cloning into 'test_Junit_01'...
+remote: Counting objects: 16, done.
+remote: Compressing objects: 100% (13/13), done.
+remote: Total 16 (delta 3), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (16/16), done.
+[scott@DE2c junit_tests]$ ls
+test_Junit_01
+[scott@DE2c junit_tests]$ ls -al
+total 0
+drwxrwxr-x. 3 scott scott  27 Jun  8 19:06 .
+drwxrwxr-x. 3 scott scott 191 Jun  8 19:03 ..
+drwxrwxr-x. 4 scott scott  71 Jun  8 19:06 test_Junit_01
+[scott@DE2c junit_tests]$ cd test_Junit_01/
+[scott@DE2c test_Junit_01]$ ls
+junit-4.10.jar  README.md  source
+[scott@DE2c test_Junit_01]$ mkdir src
+[scott@DE2c test_Junit_01]$ rmdir src
+
+-rename the source directory to src:
+
+[scott@DE2c test_Junit_01]$ mv source src
+[scott@DE2c test_Junit_01]$ ls
+junit-4.10.jar  README.md  src
+
+-move the JUnit jar to a new lib directory:
+
+[scott@DE2c test_Junit_01]$ mkdir lib
+[scott@DE2c test_Junit_01]$ mv junit-4.10.jar lib
+[scott@DE2c test_Junit_01]$ ls
+lib  README.md  src
+[scott@DE2c test_Junit_01]$ cd lib
+[scott@DE2c lib]$ ls
+junit-4.10.jar
+[scott@DE2c lib]$ cd ..
+[scott@DE2c test_Junit_01]$ ;ls
+bash: syntax error near unexpected token `;'
+[scott@DE2c test_Junit_01]$ ls
+lib  README.md  src
+[scott@DE2c test_Junit_01]$ ls -al
+total 4
+drwxrwxr-x. 5 scott scott  57 Jun  8 19:08 .
+drwxrwxr-x. 3 scott scott  27 Jun  8 19:06 ..
+drwxrwxr-x. 8 scott scott 163 Jun  8 19:06 .git
+drwxrwxr-x. 2 scott scott  28 Jun  8 19:08 lib
+-rw-rw-r--. 1 scott scott  43 Jun  8 19:06 README.md
+drwxrwxr-x. 2 scott scott  48 Jun  8 19:06 src
+
+
+-now commit the changes to the remote repo:
+
+[scott@DE2c test_Junit_01]$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	deleted:    junit-4.10.jar
+#	deleted:    source/MyUnit.java
+#	deleted:    source/MyUnitTest.java
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	lib/
+#	src/
+no changes added to commit (use "git add" and/or "git commit -a")
+
+(probably only needed to run 
+git push
+git commit -a
+)?
+
+
+[scott@DE2c test_Junit_01]$ git add .
+warning: You ran 'git add' with neither '-A (--all)' or '--ignore-removal',
+whose behaviour will change in Git 2.0 with respect to paths you removed.
+Paths like 'junit-4.10.jar' that are
+removed from your working tree are ignored with this version of Git.
+
+* 'git add --ignore-removal <pathspec>', which is the current default,
+  ignores paths you removed from your working tree.
+
+* 'git add --all <pathspec>' will let you also record the removals.
+
+Run 'git status' to check the paths you removed from your working tree.
+
+[scott@DE2c test_Junit_01]$ git commit -a
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'scott@DE2c.(none)')
+[scott@DE2c test_Junit_01]$ git commit -m "moved files to new dirs"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'scott@DE2c.(none)')
+
+
+
+
+-must set git username before commiting:
+
+
+[scott@DE2c test_Junit_01]$ git config --global user.email "sjkersey@aol.com"
+
+
+this seems to have created the new dirs:
+
+
+[scott@DE2c test_Junit_01]$ git commit -m "moved files to new dirs"
+[master 8f8e29d] moved files to new dirs
+ 3 files changed, 65 insertions(+)
+ create mode 100644 lib/junit-4.10.jar
+ create mode 100644 src/MyUnit.java
+ create mode 100644 src/MyUnitTest.java
+
+
+
+probably only needed 'git push'
+
+
+[scott@DE2c test_Junit_01]$ git push origin https://github.com/sjkersey/test_Junit_01.git
+fatal: remote part of refspec is not a valid name in https://github.com/sjkersey/test_Junit_01.git
+[scott@DE2c test_Junit_01]$ git push origin test_Junit_01.gitUsername for 'https://github.com': sjkersey@aol.com
+Password for 'https://sjkersey@aol.com@github.com': 
+error: src refspec test_Junit_01.git does not match any.
+error: failed to push some refs to 'https://github.com/sjkersey/test_Junit_01.git'
+[scott@DE2c test_Junit_01]$ git push origin test_Junit_01
+Username for 'https://github.com': sjkersey@aol.com
+Password for 'https://sjkersey@aol.com@github.com': 
+error: src refspec test_Junit_01 does not match any.
+error: failed to push some refs to 'https://github.com/sjkersey/test_Junit_01.git'
+[scott@DE2c test_Junit_01]$ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	deleted:    junit-4.10.jar
+#	deleted:    source/MyUnit.java
+#	deleted:    source/MyUnitTest.java
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+not sure if needed this:
+
+[scott@DE2c test_Junit_01]$ git add src/MyUnit.java
+[scott@DE2c test_Junit_01]$ git add src/*.java
+[scott@DE2c test_Junit_01]$ git add lib/*
+[scott@DE2c test_Junit_01]$ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	deleted:    junit-4.10.jar
+#	deleted:    source/MyUnit.java
+#	deleted:    source/MyUnitTest.java
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+[scott@DE2c test_Junit_01]$ git commit -m "moved files to new dirs"
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	deleted:    junit-4.10.jar
+#	deleted:    source/MyUnit.java
+#	deleted:    source/MyUnitTest.java
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+[scott@DE2c test_Junit_01]$ ls
+lib  README.md  src
+[scott@DE2c test_Junit_01]$ cd src
+[scott@DE2c src]$ ls
+MyUnit.java  MyUnitTest.java
+
+
+was already added above?
+
+[scott@DE2c src]$ git add MyUnit.java
+[scott@DE2c src]$ git add MyUnitTest.java
+[scott@DE2c src]$ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	deleted:    ../junit-4.10.jar
+#	deleted:    ../source/MyUnit.java
+#	deleted:    ../source/MyUnitTest.java
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+-better:
+
+[scott@DE2c src]$ git push
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Username for 'https://github.com': sjkersey@aol.com
+Password for 'https://sjkersey@aol.com@github.com': 
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 338 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/sjkersey/test_Junit_01.git
+   cfcb5b7..8f8e29d  master -> master
+
+
+above added the new dirs and files, now we need to remove the old files that were moved to the new dirs
+
+
+[scott@DE2c src]$ ls
+MyUnit.java  MyUnitTest.java
+[scott@DE2c src]$ cd ..
+[scott@DE2c test_Junit_01]$ ls
+lib  README.md  src
+[scott@DE2c test_Junit_01]$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	deleted:    junit-4.10.jar
+#	deleted:    source/MyUnit.java
+#	deleted:    source/MyUnitTest.java
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+--checks to make sure we are using the correct remote repo:
+
+
+[scott@DE2c test_Junit_01]$ git remote -v
+origin	https://github.com/sjkersey/test_Junit_01.git (fetch)
+origin	https://github.com/sjkersey/test_Junit_01.git (push)
+
+
+this command didnt work, may need to add the -a flag:
+
+[scott@DE2c test_Junit_01]$ git commit -m "delete old files"
+# On branch master
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	deleted:    junit-4.10.jar
+#	deleted:    source/MyUnit.java
+#	deleted:    source/MyUnitTest.java
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+[scott@DE2c test_Junit_01]$ git commit -a
+Aborting commit due to empty commit message.
+
+
+--must type a message like "removing old files" for the deletes to work in remote repo:
+
+
+[scott@DE2c test_Junit_01]$ git commit -a
+[master 60ba735] removing old files
+ 3 files changed, 65 deletions(-)
+ delete mode 100644 junit-4.10.jar
+ delete mode 100644 source/MyUnit.java
+ delete mode 100644 source/MyUnitTest.java
+
+now push again:
+
+[scott@DE2c test_Junit_01]$ git push
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Username for 'https://github.com': sjkersey@aol.com
+Password for 'https://sjkersey@aol.com@github.com': 
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 228 bytes | 0 bytes/s, done.
+Total 2 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/sjkersey/test_Junit_01.git
+   8f8e29d..60ba735  master -> master
+[scott@DE2c test_Junit_01]$ 
+
+
+--finally old files removed on remote repo.
