@@ -342,7 +342,7 @@ To https://github.com/sjkersey/test_Junit_01.git
 --finally old files removed on remote repo.
 
 --summary
-add a file with 'git add --all'  (or edit file(s))
+add a file with 'git add --all'  (or delete/edit file(s) / directory structure)
 git commit -a
 git push
 
