@@ -349,4 +349,4 @@ git push
 
 verify
 verify again (worked but Edge browser cache not refreshing)
-(use shift- refresh to refresh browser cache?)
+(use Shift + refresh button to refresh browser cache to see changes)
