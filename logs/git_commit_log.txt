@@ -348,4 +348,5 @@ git commit -a
 git push
 
 verify
-verify again
+verify again (worked but Edge browser cache not refreshing)
+(use shift- refresh to refresh browser cache?)
