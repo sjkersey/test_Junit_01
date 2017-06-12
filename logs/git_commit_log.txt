@@ -346,3 +346,5 @@ add a file with 'git add --all'
 git push
 git commit -a
 git push
+
+verify
