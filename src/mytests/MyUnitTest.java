@@ -80,7 +80,7 @@ public class MyUnitTest {
         String result = myUnit.concatenate("one", "two");
 
         //assertEquals("onetwo", result);
-        assertEquals("one two", result); // to verify Jenkins compile location
+        assertEquals("onetwo", result); // to verify Jenkins compile location
 
     }
 }
