@@ -69,7 +69,16 @@ public class MyUnitTest {
         String result = myUnit.concatenate("one", "two");
 
         assertEquals("onetwo", result);
-	assertEquals("onetwo", result); // to verify Jenkins compile location
+	//assertEquals("one two", result); // to verify Jenkins compile location
+
+    }
+    public void testConcatenate2() {
+        MyUnit myUnit = new MyUnit();
+
+        String result = myUnit.concatenate("one", "two");
+
+        //assertEquals("onetwo", result);
+        assertEquals("one two", result); // to verify Jenkins compile location
 
     }
 }
