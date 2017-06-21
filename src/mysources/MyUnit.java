@@ -1,3 +1,8 @@
+/**
+ * Test class for JUnit
+ *
+*/
+
 package mysources;
 
 public class MyUnit {

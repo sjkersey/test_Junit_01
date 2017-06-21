@@ -69,6 +69,7 @@ public class MyUnitTest {
         String result = myUnit.concatenate("one", "two");
 
         assertEquals("onetwo", result);
+	assertEquals("onetwo", result); // to verify Jenkins compile location
 
     }
 }
