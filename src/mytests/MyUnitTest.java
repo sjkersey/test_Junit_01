@@ -72,6 +72,8 @@ public class MyUnitTest {
 	//assertEquals("one two", result); // to verify Jenkins compile location
 
     }
+
+    @Test
     public void testConcatenate2() {
         MyUnit myUnit = new MyUnit();
 
