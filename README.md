@@ -15,6 +15,7 @@ sudo visudo
 add following line (a comment line and a wrapped line) to the file with paths of scripts for Jenkins to run:
 
 #allows jenkins to rebuild gnuradio and others installed under /home/scott
+
 jenkins ALL=(scott) NOPASSWD: /home/scott/for_jenkins/run_as_jenkins_gnuradio.sh, /home/scott/for_jenkins/test_Jenkins_trigger_gnuradio.sh, /home/scott/dev/junit_tests/test_Junit_01/test_build.sh
 
 
